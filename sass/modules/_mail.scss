@@ -1,0 +1,76 @@
+label {
+  display: block;
+  margin: 1.5em 0 0.3em;
+
+  padding-left: 0.4em;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  color: #866f9b;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  padding: 0.6em;
+  color: #333;
+  border-radius: 10px;
+  width: 450px;
+}
+
+input[type="submit"] {
+  margin-top: 2em;
+  padding: 0.75rem 4.75rem 0.75rem 4.75rem;
+  border-radius: 0.5rem;
+  background-color: #866f9b;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+
+  &:hover {
+    background-color: #af91ca;
+  }
+}
+
+.wrapper {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+textarea {
+  resize: none;
+  position: sticky;
+}
+
+.contact h2 {
+  text-align: center;
+  color: #866f9b;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.contact {
+  text-align: center;
+}
+
+.error {
+  display: none;
+  color: red;
+}
+
+.showme {
+  display: block;
+}
+
+#error-container {
+  color: red;
+}
+
+#success-container {
+  color: green;
+}

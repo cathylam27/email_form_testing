@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cathy Lam's Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="hidden">Header</h1>
+      <img id="main-logo" src="images/cathylam_logo.svg" alt="logo" />
+      <div class="main_nav">
+        <h2 class="hidden">Main Navigation</h2>
+        <ul>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#works">WORKS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="app">
+      <article>
+        <h3>Hi, I'm Cathy Lam (Chau Lin)!</h3>
+        <p>
+          I have more than 7 years of experience in Graphic Design, including
+          social media advertising visuals, printing, and magazine. In addition,
+          I am an international student studying in an Interactive Media Design
+          program at Fanshawe College, so I also have a skill in Web Design,
+          Video Editing Design, and Products Design.
+        </p>
+      </article>
+
+      <nav id="character-nav" class="hidden">
+        <!-- Works Start here -->
+        <ul class="characters">
+          <!-- hero thumb component goes here -->
+          <theherothumb
+            @loadlbdata="loadLightbox"
+            v-for="hero in heroData"
+            :hero="hero"
+          ></theherothumb>
+        </ul>
+      </nav>
+
+      <!-- custom lightbox component goes here -->
+      <thelightbox
+        @closelightbox="this.showLB = false"
+        v-if="showLB"
+        :item="lbData"
+      ></thelightbox>
+      <!-- end lightbox -->
+
+      <section id="error-container" class="error showme">
+        <h3 class="hidden">Message Sent Result error</h3>
+        <p></p>
+      </section>
+
+      <section id="success-container" class="error showme">
+        <h3 class="hidden">Message Sent Result success</h3>
+        <p></p>
+      </section>
+
+      <section class="contact">
+        <h2 class="mail-header">CONTACT ME</h2>
+
+        <form action="includes/mail/send.php" method="POST" id="mail-form">
+          <label for="firstname">First Name</label>
+          <input
+            ref="fname"
+            type="text"
+            id="firstname"
+            name="firstname"
+            required="required"
+          />
+
+          <label for="lastname">Last Name</label>
+          <input
+            ref="lname"
+            type="text"
+            id="lastname"
+            name="lastname"
+            required
+          />
+
+          <label for="firstname">Email</label>
+          <input ref="email" type="email" id="email" name="email" required />
+
+          <label for="message">Your Message</label>
+          <textarea
+            ref="message"
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+          ></textarea>
+
+          <label for="phone">Your Phone # <i>(optional)</i></label>
+          <input ref="phone" type="tel" value="tel" name="phone" />
+
+          <div class="wrapper">
+            <input
+              @click.prevent="processMail"
+              type="submit"
+              class="submit"
+              value="Send"
+            />
+          </div>
+        </form>
+      </section>
+    </main>
+    <!-- make this a sticky footer so it's always at the bottom-->
+    <footer class="sticky_footer">
+      <h3>2022 &copy; Cathy Lam</h3>
+    </footer>
+
+    <!-- lightbox component goes here -->
+
+    <!-- end lightbox component -->
+
+    <!-- load script tags at the bottom -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/main.js" type="module" defer></script>
+  </body>
+</html>
