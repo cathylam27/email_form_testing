@@ -40,13 +40,15 @@ if ($_POST) {
     "Reply-To: jump_off_a_bridge@example.com" . "\r\n" .
     "X-Mailer: PHP/" . phpversion();
     
-    if (count($fail)==0) {
+    if(count($fail==0)) {
         mail($recipient, $subject, $message, $headers);
-        $results['message'] = sprintf('Thank you for contacting us, %s. You will get a reply within 24 hours', $visitor_name);
-    } else {
-        // header('HTTP/1.1 488 You Did NOT fill out the form correctly');
-        die(json_encode(["message" => $fail]));
+        $results['message'] = sprintf("Thank you for contacting us, %s. We will get back to you in 24 hours.", $visitor_name);
+        
+    }else{
+        //header('HTTP/1.1 488 Stop being lazy, fill out the damn form...thanks ;');
+        die(json_encode(["message"=> $fail]));
     }
+
 } else {
     $results['message'] = 'No submission';
 }
