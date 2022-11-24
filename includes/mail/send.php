@@ -45,7 +45,7 @@ if ($_POST) {
         $results['message'] = sprintf("Thank you for contacting us, %s. We will get back to you in 24 hours.", $visitor_name);
         
     }else{
-        //header('HTTP/1.1 488 Stop being lazy, fill out the damn form...thanks ;');
+        header('HTTP/1.1 488 Stop being lazy, fill out the damn form...thanks ;');
         die(json_encode(["message"=> $fail]));
     }
 
